@@ -554,14 +554,13 @@ function modalGeneric() {
                                 <div class="col s12">
                                     <div class="center-align" style="display: flex; justify-content: center;">
                                         <button id="btn-generic" onclick="updatetudent()" class="btn green darken-1 waves-effect waves-light btn-custom" 
-                                                style="width: 250px; margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                                            style="margin-top: 20px; gap: 10px; width: 250px; display: flex; align-items: center; justify-content: center; right: 5">
                                             <i class="material-icons" style="font-size: 2rem !important;">save</i>
-                                            Salvar Aluno
+                                            <span>Salvar Aluno</span>
                                         </button>
                                     </div>
                                 </div>
                             </div>
-
             
                         </form>
                     </div>
@@ -703,14 +702,13 @@ function modalCreate() {
                                 <div class="col s12">
                                     <div class="center-align" style="display: flex; justify-content: center;">
                                         <button id="btn-generic" onclick="createNewStudent()" class="btn green darken-1 waves-effect waves-light btn-custom" 
-                                                style="width: 250px; margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                                            style="margin-top: 20px; gap: 10px; width: 250px; display: flex; align-items: center; justify-content: center; right: 5">
                                             <i class="material-icons" style="font-size: 2rem !important;">save</i>
-                                            Adcionar Aluno
+                                            <span>Adcionar Aluno</span>
                                         </button>
                                     </div>
                                 </div>
                             </div>
-
             
                         </form>
                     </div>
