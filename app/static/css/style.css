@@ -134,6 +134,9 @@ body {
 
 .btn-custom{
     border-radius: 20px;
+    width: 250px;
+    position: relative;
+    right: 72%; 
 }
 
 .card-panel{
@@ -146,4 +149,11 @@ body {
 
 .div-custom{
     width: 100px;
+}
+
+@media (max-width: 768px) {
+    .btn-custom{
+        border-radius: 20px;
+    }
+
 }
