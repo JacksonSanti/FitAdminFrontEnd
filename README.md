@@ -4,7 +4,7 @@
 
 Este projeto é um MVP (Minimum Viable Product) desenvolvido para a PUC-Rio, com o objetivo de colocar em prática os conhecimentos adquiridos no semestre atual. 
 Ele representa a primeira parte do projeto, após a instalação desse projeto deve fazer a instalação da [parte 2](https://github.com/JacksonSanti/FitAdminBackEnd) para a execução do projeto como um todo.
-Após a instalação de ambas as partes, você pode acessar sua documentação clicando [aqui](http://127.0.0.1:5001/swagger/) caso queira acessar o projeto basta clicar [aqui](http://127.0.0.1:5000/).
+Após a instalação de ambas as partes, você pode acessar sua documentação clicando [aqui](http://127.0.0.1:5001/swagger/),caso queira acessar o projeto basta clicar [aqui](http://127.0.0.1:5000/).
 
 ---
 
