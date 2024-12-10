@@ -28,5 +28,3 @@ Após a instalação de ambas as partes, você pode acessar sua documentação c
 6. **Após instalar, só basta executar**
    ```bash
    python run.py
-
-  
