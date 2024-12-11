@@ -13,5 +13,5 @@ Após a instalação de ambas as partes, você pode acessar sua documentação c
 1. **Clone este repositório**
    ```bash
    git clone git@github.com:JacksonSanti/FitAdminFrontEnd.git
-2. **Após só basta clicar no arquivo(é necessario que a segunda parte esteja em execução)**
-   index.html
+2. **Após só basta clicar no arquivo index.html (é necessario que a segunda parte esteja em execução)**
+   
