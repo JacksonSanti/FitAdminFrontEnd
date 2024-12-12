@@ -57,6 +57,50 @@ function getDataTable(data) {
     modalGeneric();
     modalCreate();
 
+    document.getElementById('update-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const id = document.getElementById('id_').value;
+        const name = document.getElementById('name_').value;
+        const email = document.getElementById('email_').value;
+        const gender = parseInt(document.getElementById('gender-select').value);
+        const birthdate = document.getElementById('birthdate_').value;
+        const phone = document.getElementById('phone_').value;
+        const state = parseInt(document.getElementById('state-select').value);
+        const city = document.getElementById('city_').value;
+        const neighborhood = document.getElementById('neighborhood_').value;
+        const address = document.getElementById('address_').value;
+        const number = document.getElementById('number_').value;
+
+        const formData = new FormData();
+
+        formData.append('id', id);
+        formData.append('name', name);
+        formData.append('email', email);
+        formData.append('gender', gender);
+        formData.append('birthdate', birthdate);
+        formData.append('phone', phone);
+        formData.append('state', state);
+        formData.append('city', city);
+        formData.append('neighborhood', neighborhood);
+        formData.append('address', address);
+        formData.append('number', number);
+        
+        fetch('http://127.0.0.1:5001/student', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            location.reload();
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            document.getElementById('message').textContent = "Erro na requisição!";
+        });
+    });
+    
+
     
 }
 //-----------CREATE DATA---------------
@@ -127,35 +171,6 @@ function deleteStudent(id) {
         });    
 }
 
-//-----------UPDATE DATA---------------
-function updatetudent() {
-    const id = document.getElementById('id_').value;
-    const name = document.getElementById('name_').value;
-    const email = document.getElementById('email_').value;
-    const gender = parseInt(document.getElementById('gender-select').value);
-    const birthdate = document.getElementById('birthdate_').value;
-    const phone = document.getElementById('phone_').value;
-    const state = parseInt(document.getElementById('state-select').value);
-    const city = document.getElementById('city_').value;
-    const neighborhood = document.getElementById('neighborhood_').value;
-    const address = document.getElementById('address_').value;
-    const number = document.getElementById('number_').value;
-
-       
-    fetch('http://127.0.0.1:5001/student', {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ id, name, email, gender, birthdate, phone, state, city, neighborhood, address, number })
-    })
-    .then(data => {
-        console.log('Dados atualizados:', data);
-    })
-    .catch(error => console.error('Erro:', error));
-
-}
-
 //-------------GET DATA----------------
 function getDataStudent(idStudent) {
     return fetch(`http://127.0.0.1:5001/search?id=${idStudent}`, {
@@ -171,7 +186,6 @@ function getDataStudent(idStudent) {
         return response.json(); 
     });
 }
-
 
 function getDataGender() {
 
@@ -475,56 +489,56 @@ function modalGeneric() {
                 <div class="container-generic" style="padding: 0% !important;"> 
                     <div class="row">
                         <form class="col s12" id="update-form">
-                            <input type="hidden" id="id_">
+                            <input type="hidden" id="id_" name="id">
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input id="name_" type="text" class="validate">
+                                    <input id="name_" name="name" type="text" class="validate">
                                     <label for="name_" class="active" style="color: black !important;">Nome</label>
                                 </div>
                                 <div class="input-field col s6">
-                                    <input id="email_" type="email" class="validate">
+                                    <input id="email_" name="email" type="email" class="validate">
                                     <label for="email_" class="active" style="color: black !important;">Email</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <select id="gender-select">
+                                    <select id="gender-select" name="gender">
                                     </select>
                                     <label style="color: black !important;">Genero</label>
                                 </div>
                                 <div class="input-field col s6">
-                                    <input id="birthdate_" type="text" class="datepicker" >
+                                    <input id="birthdate_" type="text" class="datepicker" name="birthdate">
                                     <label for="birthdate_" class="active" style="color: black !important;">Data de Nascimento</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input id="phone_" type="text" class="validate">
+                                    <input id="phone_" type="text" class="validate" name="phone">
                                     <label for="phone_" class="active" style="color: black !important;">Celular</label>
                                 </div>
                                 <div class="input-field col s6">
-                                    <select id="state-select">
+                                    <select id="state-select" name="state">
                                     </select>
                                     <label style="color: black !important;">Estado</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input id="city_" type="text" class="validate">
+                                    <input id="city_" type="text" class="validate" name="city">
                                     <label for="city_" class="active" style="color: black !important;">Cidade</label>
                                 </div>
                                 <div class="input-field col s6">
-                                    <input id="neighborhood_" type="text" class="validate">
+                                    <input id="neighborhood_" type="text" class="validate" name="neighborhood">
                                     <label for="neighborhood_" class="active" style="color: black !important;">Bairro</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s6">
-                                    <input id="address_" type="text" class="validate">
+                                    <input id="address_" type="text" class="validate" name="address">
                                     <label for="address_" class="active" style="color: black !important;">Rua</label>
                                 </div>
                                 <div class="input-field col s6">
-                                    <input id="number_" type="text" class="validate">
+                                    <input id="number_" type="text" class="validate" name="number">
                                     <label for="number_" class="active" style="color: black !important;">Numero</label>
                                 </div>
                             <div/>
@@ -553,7 +567,7 @@ function modalGeneric() {
                             <div class="row">
                                 <div class="col s12">
                                     <div class="center-align" style="display: flex; justify-content: center;">
-                                        <button id="btn-generic" onclick="updatetudent()" class="btn green darken-1 waves-effect waves-light btn-custom" 
+                                        <button id="btn-generic" type="submit" class="btn green darken-1 waves-effect waves-light btn-custom" 
                                             style="margin-top: 20px; gap: 10px; width: 250px; display: flex; align-items: center; justify-content: center; right: 5">
                                             <i class="material-icons" style="font-size: 2rem !important;">save</i>
                                             <span>Salvar Aluno</span>
